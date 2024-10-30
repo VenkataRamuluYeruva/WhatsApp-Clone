@@ -1,0 +1,49 @@
+.Userlist-List-Item{
+    display:flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width:96.5%;
+    height:50px;
+    padding:5px;
+    margin:5px 0px;
+    cursor: pointer;
+    box-shadow:rgba(109, 109, 109, 0.2) 0px 2px 8px 0px;
+}
+.Userlist-List-Item:hover{
+    background-color:#EAEAEA;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+}
+.Userlist-List-Item-Image{
+    background-color:#D8D9DA;
+    width:50px;
+    height:50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left:0px;
+    margin-right: 10px;
+    cursor: pointer;
+}
+.Userlist-List-Item-Image img{
+    width:40px;
+    height:40px;
+    border-radius: 50%;
+}
+.Userlist-List-Item-Text{
+    display:block;
+    width:60%;
+    margin-top:-5px;
+}
+.Userlist-List-Item-Text p{
+    position: relative;
+    margin: 0px;
+}
+.Userlist-List-Item-Time{
+    position: relative;
+    font-size: 11px;
+    color: #27282a;
+    margin-right: 0px;
+    top:-10px;
+}

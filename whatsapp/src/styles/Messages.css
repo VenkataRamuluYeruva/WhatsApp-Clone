@@ -1,0 +1,120 @@
+.message-container{
+    width:calc(100% - 380px);
+    height: 100%;
+}
+.content{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width:100%;
+    height:100%;
+}
+.content img{
+    width:90px;
+    height:90px;
+}
+.content p,.content h4{
+    margin:3px 0px;
+}
+.message-box{
+    width:100%;
+    background-color:'#F5F5F5'; ;
+}
+.message-box-header{
+    width:100%;
+    height:60px;
+    position: relative;
+    background-color: white;
+    margin-top:0px;
+    display: flex;
+    flex-direction: row;
+    justify-content:space-between;
+    align-items: center;
+    border-bottom: 1px solid #9EC8B9;
+}
+.message-box-header-left{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+.message-box-header-left .image{
+    width:45px;
+    height:45px;
+    margin-left:10px;
+    background-color: aliceblue;
+    border-radius: 50%;
+}
+.message-box-header-left .image span{
+    display: none;
+}
+.message-box-header-left .image img{
+    width:45px;
+    height:45px;
+}
+.message-box-username{
+    display:flex;
+    flex-direction: column;
+    margin-left:10px;
+}
+.message-box-username p{
+    margin:0px;
+}
+.message-box-username .username{
+    font-size:17px;
+    margin-top:-5px;
+}
+.message-box-username .last-message{
+    font-size:13px;
+}
+.message-box-body{
+    width:100%;
+    height:80%;
+    overflow-y: auto;
+    background-color:white;
+}
+.message-box-body::-webkit-scrollbar{
+    width:2px;
+    height:10px;
+}
+.message-box-body::-webkit-scrollbar-thumb{
+    background-color: #9EC8B9;
+}
+.message-box-body img{
+    width:25px;
+    height:25px;
+    border-radius: 50%;
+}
+
+@media  screen and (max-width:768px) {
+    .message-container{
+        display:block;
+    }
+    .message-box{
+        display:block;
+    }
+    .message-box-header-left .image{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        margin:0px 5px;
+    }
+    .message-box-header-left .image span{
+        display: block;
+        margin-left:10px;
+        cursor: pointer;
+    }
+    .message-box-header-left .image img{
+        width:35px;
+        height:35px;
+    }
+    .message-box-username{
+        margin-left:15px;
+    }
+    .message-box-content{
+        max-width:70%;
+    }
+}

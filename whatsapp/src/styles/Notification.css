@@ -1,0 +1,23 @@
+.Notification {
+    padding: 10px;
+    border-bottom: 1px solid #f0f0f0;
+    position: absolute;
+    border-radius: 5px;
+    width:350px;
+    height:auto;
+    right:20px;
+    height: 50px;
+}
+.Notification.success{
+    background-color: #038421;
+}
+.Notification.error{
+    background-color: #da0419;
+}
+.message{
+    font-size: 15px;
+    font-weight: 600;
+    color: white;
+    text-align: center;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}

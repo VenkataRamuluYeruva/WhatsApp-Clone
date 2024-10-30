@@ -1,0 +1,52 @@
+.form-group{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height:fit-content;
+    margin: 5px 0px;
+}
+.input-group{
+    display: flex;
+    flex-direction: column;
+}
+.input-group label{
+    font-size:16px;
+}
+.input-group input{
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid rgba(0,0,0,0.8);
+    outline: none;
+    height: 37px;
+}
+.input-group input:focus{
+    border: 2px solid #007bff;
+}
+.field-error{
+    width: 100%;
+    color: red;
+    font-size: 13px;
+    margin-top: 2px;
+}
+.field-error p{
+    text-align:start;
+}
+.password-container{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin:6px 0px;
+}
+.show-password{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+}
+/* .show-password label{
+    font-size: 14px;
+    background-color: rgb(57, 84, 3);
+    width:180px;
+} */
