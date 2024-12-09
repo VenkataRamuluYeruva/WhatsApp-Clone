@@ -1,22 +1,40 @@
-import React, { useState} from "react";  
+import React, { useState,useEffect} from "react";  
 import '../styles/login.css';
 import Input from "../Components/Input";
 import { PasswordValidation,EmailValidation } from "../Utils/InputValidation";
 import { Link,useNavigate} from "react-router-dom";
 import { useNotification } from "../Contexts/NotificationContext";
-import useApiServices from "../Utils/ApiServices";
+import { loginDisputch } from "../Redux/actions/Login";
+import {  connect } from 'react-redux';
 
-export default function Login() {
+function LoginComponent({
+    login,
+    isAuthenticated,
+    isError,
+    Error,
+    state,
+    isLoading,
+    status,
+    data,
+}) {
     const { showNotification } = useNotification();
-    const { LoginAPI } = useApiServices();
+
     const navigate = useNavigate();
+
+    console.log(data);
 
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [emailError,setEmailError]=useState(null);
     const [passwordError,setPasswordError]=useState(null);
 
-    const handleLogin =async (e) => {
+    useEffect(() => {
+        if (isAuthenticated) {
+            navigate("/home/chat");
+        }
+    }, [email]);
+
+    const handleLogin =(e) => {
         e.preventDefault();
 
         const emailValidationError = EmailValidation(email);
@@ -27,15 +45,17 @@ export default function Login() {
             return;
         }
         const data={email,password};
-        const response=await LoginAPI(data);
-        if(response){
-            setEmail('');
-            setPassword('');
+        login(data);
+        
+        setEmail('');
+        setPassword('');
+        
+        if(isAuthenticated){
+            showNotification('Login Success','success');
             setTimeout(()=>{
                 navigate('/home/chat');
             },3000);
-        }
-        
+        }   
     }
     
     return (
@@ -47,6 +67,7 @@ export default function Login() {
                         <img src="/WhatsApp-icon.png" alt="whatsapp" />
                         <p>WhatsApp</p>
                     </div>
+                    {isError && <div className="error-message">{Error}</div>}
                     <div className="header-title">
                         <p>Login to Continue</p>
                     </div>
@@ -93,3 +114,19 @@ export default function Login() {
         </div>
     )
 }
+
+const mapStateToProps =(state)=>({
+    isAuthenticated:state.login.isAuthenticated,
+    isError:state.login.isError,
+    Error:state.login.error,
+    state:state.login.state,
+    isLoading:state.login.isLoading,
+    status:state.login.status,
+    data:state.login.data
+});
+
+const mapDispatchToProps = {
+    login: loginDisputch
+}
+
+export default connect(mapStateToProps,mapDispatchToProps)(LoginComponent);

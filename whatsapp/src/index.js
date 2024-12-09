@@ -4,15 +4,19 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import {Provider} from 'react-redux';
-import store from './Contexts/store';
+import {store,persistor} from './Redux/store';
 import { NotificationContextProvider } from './Contexts/NotificationContext';
+import { PersistGate } from 'redux-persist/integration/react';
+
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <Provider store={store}>
-    <NotificationContextProvider>
-      <App />
-    </NotificationContextProvider>
+      <PersistGate loading={null} persistor={persistor}>
+          <NotificationContextProvider>
+              <App />
+          </NotificationContextProvider>
+      </PersistGate>
   </Provider>
 );
 

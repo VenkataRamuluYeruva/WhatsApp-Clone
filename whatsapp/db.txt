@@ -1,0 +1,7 @@
+ messages table:
+ PRIMARYÿ receiveridÿ senderid
+ messageidÿ senderidÿ receiveridÿ messagetypeÿ messageÿ dateÿ time datecurrent_timestamp() timecurrent_timestamp()
+
+
+ users table:
+ ÿ usernameÿ emailÿ joined_atÿ profile_picÿ gender

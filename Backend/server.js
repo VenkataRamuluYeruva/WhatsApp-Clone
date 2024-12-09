@@ -30,7 +30,7 @@ let users = {};
 wss.on('connection', (ws, req) => {
   const params = new url.URL(req.url, 'http://localhost').searchParams;
   const userId = params.get('userId');
-
+  console.log('Connected:', userId);
   // Store the user's WebSocket connection
   if (userId) {
     users[userId] = ws;

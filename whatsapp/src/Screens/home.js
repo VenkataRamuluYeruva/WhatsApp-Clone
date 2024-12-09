@@ -2,10 +2,9 @@ import React from "react";
 import { Link, Routes, Route, Navigate } from "react-router-dom";
 import Chat from "../Screens/Chat";
 import '../styles/home.css';
-import { useSelector } from "react-redux";
+import { connect } from "react-redux";
 
-export default function Home() {
-    const userData = useSelector(state => state.user.userDetails);
+function HomeComponent({userDetails}) {
 
     return (
         <div className='home-container'>
@@ -15,7 +14,7 @@ export default function Home() {
                     <p>whatsapp</p>
                 </div>
                 <div className='header-user'>
-                    <p>{userData ? userData.username : "Guest"}</p> {/* Conditional check here */}
+                    <p>{userDetails.userId}</p> {/* Conditional check here */}
                     <span className="material-symbols-outlined">person</span> 
                 </div>
             </div>
@@ -44,3 +43,14 @@ export default function Home() {
         </div>
     );
 }
+
+
+const mapStateToProps = (state) =>({
+    
+    userDetails: state.login.data,
+    
+})
+
+const Home=connect(mapStateToProps,null)(HomeComponent);
+
+export default Home;
