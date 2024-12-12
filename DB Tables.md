@@ -1,7 +1,7 @@
 Here’s a database schema design for a chatting application that supports the functionalities you mentioned. This schema uses relational databases like **MySQL** or **PostgreSQL** but can be adapted for other systems.
 
 ---
----
+
 ### **1. Users Table**
 Stores information about the users of the application.
 
